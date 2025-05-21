@@ -1,0 +1,32 @@
+# .gitignore estándar para proyectos Java/Gradle
+# Autor: ChristianJaimes
+
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+.gradle/
+**/target/
+**/.classpath
+**/.project
+**/.settings/
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+*.log
+*.tmp
+*.swp
+*.bak
+*.class
+*.jar
+*.war
+*.ear
+*.db
+*.sqlite
+*.h2.db
+*.env
+*.local
+*.vscode/

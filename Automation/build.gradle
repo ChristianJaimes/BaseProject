@@ -1,0 +1,42 @@
+/*
+ * build.gradle
+ * Configuración principal del proyecto de automatización web.
+ * Autor: ChristianJaimes
+ */
+plugins {
+    id 'java'
+}
+
+group = 'com.example.automation'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.32.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:6.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.0-M3'
+    testImplementation 'io.cucumber:cucumber-java:7.22.2'
+    testImplementation 'io.cucumber:cucumber-junit:7.22.2'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "headless", System.getProperty("headless", "false")
+}
+
+tasks.register('printDeps') {
+    group = 'Help'
+    description = 'Imprime las dependencias del proyecto'
+    doLast {
+        configurations.compileClasspath.each { println it }
+    }
+}

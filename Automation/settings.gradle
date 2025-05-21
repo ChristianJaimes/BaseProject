@@ -1,0 +1,6 @@
+/*
+ * settings.gradle
+ * Configuración de nombre de proyecto Gradle.
+ * Autor: ChristianJaimes
+ */
+rootProject.name = 'automation-java'
