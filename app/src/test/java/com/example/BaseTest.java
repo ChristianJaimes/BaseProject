@@ -1,8 +1,8 @@
 package test.java.com.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,8 +22,8 @@ public abstract class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         // 1. Configura y descarga el driver adecuado
         WebDriverManager.chromedriver().setup();
 
@@ -40,8 +40,8 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
         if (driver != null) {
             driver.quit();
         }

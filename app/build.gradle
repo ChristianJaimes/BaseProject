@@ -33,10 +33,7 @@ dependencies {
     implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
     implementation "io.github.bonigarcia:webdrivermanager:${wdmVersion}"
 
-    testImplementation platform("org.junit:junit-bom:${junitVersion}")
-    testImplementation "org.junit.jupiter:junit-jupiter"
-
-    // BDD (opcional)
+    // BDD (solo Cucumber con JUnit 4)
     testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
     testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
 }
@@ -47,12 +44,6 @@ tasks.test {
         events "passed", "skipped", "failed"
         exceptionFormat "short"
     }
-}
-
-/* Wrapper siempre en 8.10, que ya corre con JDK 23 */
-tasks.wrapper {
-    gradleVersion = '8.10'
-    distributionType = Wrapper.DistributionType.ALL
 }
 
 /* Utilidad opcional para imprimir versiones */
